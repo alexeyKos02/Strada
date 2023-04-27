@@ -5,10 +5,10 @@ export default class ToDo{
     }
 
     addHigh(text, status){
-        this.highList.push({text:text,status:status,id:this.highList.list})
+        this.highList.push({text:text,status:status,id:this.highList.length})
     }
     addLow(text, status){
-        this.lowList.push({text:text,status:status,id:this.lowList.list})
+        this.lowList.push({text:text,status:status,id:this.lowList.length})
     }
 
     get highArray(){
@@ -18,5 +18,10 @@ export default class ToDo{
     get lowArray(){
         return this.lowList
     }
-
+    deleteHigh(id){
+        this.highList = this.highList.filter(deal => deal.id !== Number(id))
+    }
+    deleteLow(id){
+        this.lowList = this.lowList.filter(deal => deal.id !== Number(id))
+    }
 }
